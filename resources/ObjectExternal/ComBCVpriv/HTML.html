@@ -1,0 +1,703 @@
+<template id="bdc-template">
+	<button id=print-btn>Imprimer</button>
+   <div class="bdc-container">
+      <div class="main-line header">
+         <div class="cell header-cell" >
+            <img class="img-fluid" src="{{logo}}"/>
+         </div>
+         <div class="cell header-cell">
+            <div class="header-title" >
+               <div>BON DE COMMANDE</div>
+               <div class="italic">Vente Privilège</div>
+            </div>
+         </div>
+         <div class="cell header-cell" >
+            <div>
+               <div>Date de la demande: {{dateOpe}}</div>
+               <br>
+            </div>
+         </div>
+      </div>
+      {{#item}}
+      <div class="title" id="in5yc">
+         <div>
+            {{comPBnom}}
+         </div>
+      </div>
+      {{/item}}
+      <div class="main-line">
+         <div class="column col-40">
+            <div class="value-block">
+               <div class="line">
+                  <div class="column col-70">
+                     Date(s)
+                  </div>
+                  <div class="column col-30">
+              		{{#commandes}}
+                     {{dateParution}}
+                	{{/commandes}}
+                  </div>
+               </div>
+               <div class="line">
+                  <div class="column col-70">
+                     Nombre de journaux
+                  </div>
+                  <div class="column col-30">
+                  	{{#commandeData}}
+                     {{qte}}
+                    {{/commandeData}}
+                  </div>
+               </div>
+               <div class="line">
+                  <div class="column col-70">
+                     Avec Supplément Thématique
+                  </div>
+                  <div class="column col-30">
+                     {{#commandeData}}
+                     {{sup}}
+                    {{/commandeData}}
+                  </div>
+               </div>
+               <div class="line">
+                  <div class="column col-70">
+                     Edition(s)
+                  </div>
+                  <div class="column col-30">
+              		{{#commandes}}
+                     {{edition}}
+                    {{/commandes}}
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="column col-60"></div>
+      </div>
+      <div class="main-line">
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Type de Conditionnement
+               </div>
+               {{#commandeData}}
+               <div class="value-block">
+                  <div class="line col-20">
+                     <div class="column col-20">
+	                    {{type}}
+                     </div>
+                     <div class="column list col-80">
+                        <div>{{line1}}</div>
+                        <div>{{line2}}</div>
+                        <div>{{line3}}</div>
+                        <div>{{line4}}</div>
+                     </div>
+                  </div>
+               </div>
+				{{/commandeData}}
+                <!--{{#commandes}}
+	              <div class="value-block">
+	                  <div class="line col-20">
+	                     <div class="column col-20">
+	                        {{type}}
+	                     </div>
+	                     <div class="column col-80">
+	                        {{fichierTxt}}
+	                     </div>
+	                  </div>
+	                  <div class="line col-20">
+	                     <div class="column col-20">
+	                        {{typeLivraison}}
+	                     </div>
+	                     <div class="column col-80">
+	                        [ENCART]
+	                     </div>
+	                  </div>
+	               </div>
+               {{/commandes}}-->
+            </div>
+         </div>
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Adresse de Livraison
+               </div>
+               <div class="value-block">
+                  <div class="line">
+                  	{{#commandeData}}
+                     {{adresse}}
+                    {{/commandeData}}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="main-line">
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Tarif JOURNAL TVA 2,10%
+               </div>
+               <div class="line sub-line">
+                  <div class="cell col-70">
+                     <div class="value-block">
+                        <div class="line">
+                           Prix Public TTC:
+                        </div>
+                        <div class="line">
+                           Taux de remise:
+                        </div>
+                        <div class="line">
+                           Prix avec remise TTC:
+                        </div>
+                     </div>
+                  </div>
+                  <div class="cell col-30">
+                  	{{#frais}}
+                     <div class="value-block">
+                        <div class="line">
+                           {{comPNRprixTtc}} €
+                        </div>
+                        <div class="line">
+                           {{comPNRtauxRemise}} %
+                        </div>
+                        <div class="line">
+                           {{comPNRtotalRemise}} €
+                        </div>
+                     </div>
+                     {{/frais}}
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Texte de l'encart
+               </div>
+               <div class="value-block">
+                  <div class="line">
+                	{{#commandeData}}
+                    	Voir pièce jointe : {{txtEncart}}
+					{{/commandeData}}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="main-line">
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Prestations complémentaires facturées TVA 20%
+               </div>
+               <div class="line sub-line">
+                  <div class="cell col-70">
+                     <div class="value-block">
+                        <div class="line">
+                        {{#commandeData}}
+                           Fichier adresses : {{fichier}}
+                       {{/commandeData}}
+                        </div>
+                        <div class="line">
+                           Location adresses :
+                        </div>
+                        <div class="line">
+                           Traitement de fichier :
+                        </div>
+                        <div class="line">
+                           Réalisation de l’encart  (N&B) :
+                        </div>
+                        <div class="line">
+                           Frais d’expédition des journaux :
+                        </div>
+                        <div class="line">
+                           Distribution des journaux :
+                        </div>
+                        <div class="line">
+                           Location car podium :
+                        </div>
+                        <div class="line">
+                           Animateur :
+                        </div>
+                        <div class="line">
+                           Autre :
+                        </div>
+                        <div class="line bold">
+                           Total HT :
+                        </div>
+                     </div>
+                  </div>
+                  <div class="cell col-30">
+                     <div class="value-block">
+                     	{{#frais}}
+                        <div class="line">
+                        	<br>
+                        </div>
+                        <div class="line">
+                           {{fraisLocAdr}} €
+                        </div>
+                        <div class="line">
+                           {{comPNRfraisTraitFich}} €
+                        </div>
+                        <div class="line">
+                           OFFERT
+                        </div>
+                        <div class="line">
+                           OFFERT
+                        </div>
+                        <div class="line">
+                           {{comPNRfraisDistribStreet}} €
+                        </div>
+                        <div class="line">
+                           {{comPNRfraisLocCar}} €
+                        </div>
+                        <div class="line">
+                           {{comPNRfraisAnmin}} €
+                        </div>
+                        <div class="line">
+                           {{comPNRfraisAutre}} €
+                        </div>
+                        <div class="line bold">
+                           {{totalHTprestaCom}} €
+                        </div>
+                        {{/frais}}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Adresse de facturation
+               </div>
+               <div class="value-block">
+				{{#facturation}}
+                  <div class="line">
+                     <div class="column col-20">
+                        Nom + Prénom:
+                     </div>
+                     <div class="column col-80">
+                       {{nom}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column col-20">
+                        Société / Association
+                     </div>
+                     <div class="column col-80">
+                        {{organisme}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column col-20">
+                        SIRET
+                     </div>
+                     <div class="column col-80">
+                        {{siret}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column col-20">
+                        Adresse
+                     </div>
+                     <div class="column col-80">
+                        {{adresse}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column col-20">
+                        Complément d'adresse
+                     </div>
+                     <div class="column col-80">
+                        {{comp}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column col-20">
+                        Code postal + ville
+                     </div>
+                     <div class="column col-80">
+                        {{cp}}
+                     </div>
+                  </div>
+                  <!--<div class="line">
+                     <div class="column col-20">
+                        Téléphone bureau
+                     </div>
+                     <div class="column col-80">
+                        {{comACContactId__comContactTel}}
+                     </div>
+                  </div>-->
+                  <div class="line">
+                     <div class="column col-20">
+                        Téléphone
+                     </div>
+                     <div class="column col-80">
+                        {{tel}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column col-20">
+                        E-mail
+                     </div>
+                     <div class="column col-80">
+						{{email}}                        
+                     </div>
+                  </div>
+                 {{/facturation}} 
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="main-line">
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Récapitulatif TTC
+               </div>
+               <div class="line sub-line">
+                  <div class="cell col-70">
+                     <div class="value-block">
+                        <div class="line">
+                           Journaux
+                        </div>
+                        <div class="line">
+                           Prestations complémentaires
+                        </div>
+                        <div class="line bold">
+                           Total
+                        </div>
+                     </div>
+                  </div>
+                  <div class="cell col-30">
+                  	{{#recapTTC}}
+                     <div class="value-block">
+                        <div class="line">
+                           {{tJ}} €
+                        </div>
+                        <div class="line">
+                           {{tP}} €
+                        </div>
+                        <div class="line bold">
+                           {{total}} €
+                        </div>
+                     </div>
+                     {{/recapTTC}}
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Conditions de facturation et de règlement
+               </div>
+               {{#facturation}}
+               <div class="value-block">
+                  <div class="line">
+                     <div class="column">
+                        Date facturation :
+                     </div>
+                     <div class="column">
+                        {{dateFacturation}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column">
+                        Envoi de la facture :
+                     </div>
+                     <div class="column">
+                        {{envoi}}
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column">
+                        Délai règlement
+                     </div>
+                     <div class="column">
+                        {{delai}}
+                     </div>
+                  </div>
+               </div>
+               {{/facturation}}
+            </div>
+         </div>
+      </div>
+      <div class="main-line">
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Délai Livraison
+               </div>
+               <div class="value-block">
+                  <div class="line">
+                     <div class="column">
+                        J: OUI
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column">
+                        J+1:
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column">
+                        J+2:
+                     </div>
+                  </div>
+                  <div class="line">
+					{{#commandeData}}
+                     <div class="column">
+                        {{poste}}
+                     </div>
+                     {{/commandeData}}
+                  </div>
+                  <br>
+               </div>
+            </div>
+         </div>
+         <div class="column">
+            <div class="cell">
+               <div class=cell-title>
+                  Règlement
+               </div>
+               <div class="value-block">
+                  <div class="line">
+                     <div class="column bold">
+                        Acompte 50%:
+                     </div>
+                     <div class="column bold">
+                        Date & mode de paiement:
+                     </div>
+                  </div>
+                  <div class="line">
+                     <div class="column bold">
+                        Règlement total:
+                     </div>
+                     <div class="column bold">
+                        Date & mode de paiement:
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="main-line">
+         <div class="column">
+            <div class="cell">
+               <div class="value-block">
+                  <div class="line">
+                     <div class="bold">
+                        Signature du client précédée de la mention bon pour accord:
+                     </div>
+                  </div>
+                  <div class="line">
+                     Le,
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="column">
+            <div class="cell">
+               <div class="line">
+                  <div class="bold">
+                     <div class="value-block">
+                        Signature du représentant NRCO: {{item.comACUserId__usr_first_name}} {{item.comACUserId__usr_last_name}}
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="main-line">
+         <div class="footer">
+            <p class="p-footer">La Nouvelle République du Centre-Ouest – 232 avenue de Grammont 37000 Tours</p>
+            <p class="p-footer">SA à Directoire et Conseil de surveillance au capital de 5 316 181 €</p>
+            <p class="p-footer">Siret 58480012200676 – RCS Tours 584800122 – N° Intracommunautaire FR81584800122</p>
+         </div>
+      </div>
+   </div>
+   <div>
+
+   	<style type="text/css">
+<!--
+span.cls_004{font-family:"Calibri Bold",serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_004{font-family:"Calibri Bold",serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_005{font-family:Arial,serif;font-size:8.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_005{font-family:Arial,serif;font-size:8.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_006{font-family:"Calibri",serif;font-size:8.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_006{font-family:"Calibri",serif;font-size:8.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_008{font-family:"Calibri",serif;font-size:9.2px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_008{font-family:"Calibri",serif;font-size:9.2px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_002{font-family:"Calibri",serif;font-size:11.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_002{font-family:"Calibri",serif;font-size:11.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_009{font-family:"Calibri Bold",serif;font-size:8.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_009{font-family:"Calibri Bold",serif;font-size:8.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+
+@media screen {
+  div.p1 {
+  	top:1200px;
+  }
+    div.p2 {
+  	top:2051px;
+  }
+}
+
+
+-->
+</style>
+
+<p style="page-break-before: always;">
+
+   	<div class="p1" style="position:absolute;left:50%;margin-left:-297px;width:595px;height:841px;">
+
+<div style="position:absolute;left:82.46px;top:72.64px" class="cls_004"><span class="cls_004">CONDITIONS GENERALES DE VENTE PRIVILEGES DU GROUPE LA NOUVELLE REPUBLIQUE</span></div>
+<div style="position:absolute;left:24.60px;top:99.66px" class="cls_005"><span class="cls_005">PREAMBULE</span></div>
+<div style="position:absolute;left:24.60px;top:109.26px" class="cls_006"><span class="cls_006">Les présentes conditions régissent exclusivement les ventes privilèges des publications éditées par la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST (à savoir les</span></div>
+<div style="position:absolute;left:24.60px;top:118.98px" class="cls_006"><span class="cls_006">journaux La Nouvelle République du Centre Ouest, La Nouvelle République Dimanche, leurs cahiers et suppléments) et par la société SOCIETTE DE PRESSE ET</span></div>
+<div style="position:absolute;left:24.60px;top:128.70px" class="cls_006"><span class="cls_006">D’INFORM  TION (ă savoir Centre Presse, le quotidien de la Vienne, ses cahiers et suppléments), proposées aux clients dans le cadre des différentes formules de ventes</span></div>
+<div style="position:absolute;left:24.60px;top:138.54px" class="cls_006"><span class="cls_006">définies au verso des présentes conditions générales. Ces deux sociétés sont désignées, pour les présentes conditions générales, par le terme générique « Groupe</span></div>
+<div style="position:absolute;left:24.60px;top:148.26px" class="cls_006"><span class="cls_006">NOUVELLE REPUBLIQUE ».</span></div>
+<div style="position:absolute;left:24.60px;top:158.10px" class="cls_006"><span class="cls_006">En conséquence, le fait d’acheter en masse des publications éditées par la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST et / ou par la société SOCIETE DE PRESSE</span></div>
+<div style="position:absolute;left:24.60px;top:167.82px" class="cls_006"><span class="cls_006">ET D’INFORM TION, conformément aux conditions définies ci-après, implique l'adhésion entière et sans réserve du client à ces conditions générales de vente, à</span></div>
+<div style="position:absolute;left:24.60px;top:177.54px" class="cls_006"><span class="cls_006">l'exclusion de toutes autres.</span></div>
+<div style="position:absolute;left:24.60px;top:187.38px" class="cls_006"><span class="cls_006">Toute condition contraire non acceptée par le Groupe NOUVELLE REPUBLIQUE lui est inopposable. Le fait pour le Groupe NOUVELLE REPUBLIQUE de ne pas se prévaloir</span></div>
+<div style="position:absolute;left:24.60px;top:197.10px" class="cls_006"><span class="cls_006">d'une des présentes conditions générales de vente n'équivaut pas à une renonciation de celles-ci à s'en prévaloir ultérieurement.</span></div>
+<div style="position:absolute;left:24.60px;top:206.58px" class="cls_005"><span class="cls_005">1. ACCEPTATION DES CONDITIONS</span></div>
+<div style="position:absolute;left:24.60px;top:216.06px" class="cls_006"><span class="cls_006">Le client reconnaît avoir pris connaissance, au moment de la passation de commande, des conditions générales de vente énoncées ci-après et déclare expressément les</span></div>
+<div style="position:absolute;left:24.60px;top:225.90px" class="cls_006"><span class="cls_006">accepter sans réserve. Les présentes conditions générales de vente régissent les relations contractuelles entre le Groupe NOUVELLE REPUBLIQUE et son client, les deux</span></div>
+<div style="position:absolute;left:24.60px;top:235.62px" class="cls_006"><span class="cls_006">parties les acceptant sans réserve. Ces conditions générales de vente prévaudront sur toutes autres conditions figurant dans tout autre document, sauf dérogation</span></div>
+<div style="position:absolute;left:24.60px;top:245.34px" class="cls_006"><span class="cls_006">préalable, expresse et écrite.</span></div>
+<div style="position:absolute;left:24.60px;top:254.82px" class="cls_005"><span class="cls_005">2. ENVOIS EN NOMBRE</span></div>
+<div style="position:absolute;left:24.60px;top:264.30px" class="cls_006"><span class="cls_006">Les tarifs applicables, les remises maximales sur quantité des envois en nombre (envois individuels ou livraison unique en paquets, avec ou sans encarts͙) ainsi que les</span></div>
+<div style="position:absolute;left:24.60px;top:274.17px" class="cls_006"><span class="cls_006">journaux et suppléments concernés figurent au verso des présentes conditions générales.</span></div>
+<div style="position:absolute;left:24.60px;top:283.53px" class="cls_005"><span class="cls_005">2.1 Les encarts personnalisés</span></div>
+<div style="position:absolute;left:24.60px;top:293.13px" class="cls_006"><span class="cls_006">Le client peut bénéficier de la prestation proposée par le Groupe LA NOUVELLE REPUBLIQUE, à savoir l’apposition d’un encart personnalisé sous film plastique sur ses</span></div>
+<div style="position:absolute;left:24.60px;top:302.85px" class="cls_006"><span class="cls_006">envois en nombre des journaux énoncés en préambule.</span></div>
+<div style="position:absolute;left:24.60px;top:312.69px" class="cls_006"><span class="cls_006">Les caractéristiques techniques de l‘encart personnalisé sont les suivantes :</span></div>
+<div style="position:absolute;left:24.60px;top:322.41px" class="cls_006"><span class="cls_006">* papier : 120 g mat - format : 250 mm x 176 mm / Format B5 ;</span></div>
+<div style="position:absolute;left:24.60px;top:332.13px" class="cls_006"><span class="cls_006">* impression : noir et blanc ;</span></div>
+<div style="position:absolute;left:24.60px;top:341.97px" class="cls_006"><span class="cls_006">* message : le texte de l’encart ne doit pas être assimilable ă de la publicité ou ă une opération de marketing direct. En ce sens, il ne doit pas comporter de bon à</span></div>
+<div style="position:absolute;left:24.60px;top:351.69px" class="cls_006"><span class="cls_006">découper, d’éloge de produits ou services, de mentions de prix, d’horaires, d’adresses etc͙ ou de signature qui lui donne la qualité de courrier adressé ;</span></div>
+<div style="position:absolute;left:24.60px;top:361.41px" class="cls_006"><span class="cls_006">* présence obligatoire du logo Nouvelle République du Centre Ouest ou Centre Presse, le quotidien de la Vienne ;</span></div>
+<div style="position:absolute;left:24.60px;top:371.25px" class="cls_006"><span class="cls_006">* le texte de l’encart doit être soumis ă la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST préalablement à sa mise en fabrication pour validation ;</span></div>
+<div style="position:absolute;left:24.60px;top:380.97px" class="cls_006"><span class="cls_006">* le logo du client doit être fourni à la société  LA NOUVELLE REPUBLIQUE DU CENTRE OUEST sous forme numérique en format jpg.</span></div>
+<div style="position:absolute;left:24.60px;top:390.81px" class="cls_006"><span class="cls_006">L’ensemble de ces éléments  (texte de l’encart et logo du client) doit être fourni, sous forme informatique, au plus tard cinq (5) jours ouvrés avant la date de  livraison</span></div>
+<div style="position:absolute;left:24.60px;top:400.53px" class="cls_006"><span class="cls_006">souhaitée ou de la date d’envoi individuel souhaitée des journaux. Le respect des délais est impératif pour la mise en fabrication des éléments de la commande du client ;</span></div>
+<div style="position:absolute;left:24.60px;top:410.25px" class="cls_006"><span class="cls_006">tout retard ou défaut de réception annulerait tout ou partie des prestations demandées.</span></div>
+<div style="position:absolute;left:24.60px;top:420.09px" class="cls_006"><span class="cls_006">Le contact de la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST est mentionné sur le bon de commande.</span></div>
+<div style="position:absolute;left:24.60px;top:429.81px" class="cls_006"><span class="cls_006">L’envoi en nombre avec encarts est assujetti ă une passe tolérée de 5 % du fait des contraintes techniques afférentes ă l’apposition de l‘encart sous le film plastique.</span></div>
+<div style="position:absolute;left:24.60px;top:439.65px" class="cls_006"><span class="cls_006">Les tarifs relatifs à cette prestation figurent au verso des présentes conditions générales.</span></div>
+<div style="position:absolute;left:24.60px;top:449.01px" class="cls_005"><span class="cls_005">2.2 Fichiers d’adresses</span></div>
+<div style="position:absolute;left:24.60px;top:458.63px" class="cls_006"><span class="cls_006">Le client peut bénéficier de la prestation proposée par le Groupe NOUVELLE REPUBLIQUE, à savoir de l’envoi individuel des journaux énoncés en préambule.</span></div>
+<div style="position:absolute;left:24.60px;top:468.35px" class="cls_006"><span class="cls_006">L’envoi individuel à la charge de la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST offre deux possibilités d’envois :</span></div>
+<div style="position:absolute;left:24.60px;top:478.07px" class="cls_006"><span class="cls_006">-</span></div>
+<div style="position:absolute;left:42.60px;top:478.07px" class="cls_006"><span class="cls_006">envoi sur fichier d’adresses La Nouvelle République /Centre Presse</span></div>
+<div style="position:absolute;left:24.60px;top:487.91px" class="cls_006"><span class="cls_006">-</span></div>
+<div style="position:absolute;left:42.60px;top:487.91px" class="cls_006"><span class="cls_006">envoi sur fichiers d’adresses du client</span></div>
+<div style="position:absolute;left:24.60px;top:497.63px" class="cls_006"><span class="cls_006">Lorsque le client optera pour l’envoi individuel sur la base de son fichier, celui-ci devra respecter des obligations sans lesquelles la prestation ne pourrait être effectuée</span></div>
+<div style="position:absolute;left:24.60px;top:507.35px" class="cls_006"><span class="cls_006">correctement par la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST :</span></div>
+<div style="position:absolute;left:24.60px;top:517.19px" class="cls_006"><span class="cls_006">-</span></div>
+<div style="position:absolute;left:42.60px;top:517.19px" class="cls_006"><span class="cls_006">l’ensemble des adresses doit être fourni ă la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST en un seul et unique fichier ;</span></div>
+<div style="position:absolute;left:24.60px;top:526.91px" class="cls_006"><span class="cls_006">-</span></div>
+<div style="position:absolute;left:42.60px;top:526.91px" class="cls_006"><span class="cls_006">format du fichier à respecter : tableau Excel, caractères en majuscules et en gras, sans accent ni ponctuation ;</span></div>
+<div style="position:absolute;left:24.60px;top:536.75px" class="cls_006"><span class="cls_006">-</span></div>
+<div style="position:absolute;left:42.60px;top:536.75px" class="cls_006"><span class="cls_006">structure  du fichier :</span></div>
+<div style="position:absolute;left:44.42px;top:554.78px" class="cls_008"><span class="cls_008">Civ Nom Prénom</span></div>
+<div style="position:absolute;left:137.59px;top:554.78px" class="cls_008"><span class="cls_008">Compl. nom ou titre</span></div>
+<div style="position:absolute;left:217.43px;top:554.78px" class="cls_008"><span class="cls_008">Compl Adresses</span></div>
+<div style="position:absolute;left:299.71px;top:554.78px" class="cls_008"><span class="cls_008">N° + nom rue</span></div>
+<div style="position:absolute;left:385.00px;top:554.78px" class="cls_008"><span class="cls_008">Code postal</span></div>
+<div style="position:absolute;left:438.83px;top:554.78px" class="cls_008"><span class="cls_008">Boite postale</span></div>
+<div style="position:absolute;left:492.69px;top:554.78px" class="cls_008"><span class="cls_008">Commune</span></div>
+<div style="position:absolute;left:44.42px;top:566.84px" class="cls_008"><span class="cls_008">STE DURAND</span></div>
+<div style="position:absolute;left:137.59px;top:566.84px" class="cls_008"><span class="cls_008">M. DURAND PAUL</span></div>
+<div style="position:absolute;left:217.43px;top:566.84px" class="cls_008"><span class="cls_008">ZAC DU BAC</span></div>
+<div style="position:absolute;left:299.71px;top:566.84px" class="cls_008"><span class="cls_008">6 RUE DU BAC</span></div>
+<div style="position:absolute;left:414.65px;top:566.84px" class="cls_008"><span class="cls_008">86000</span></div>
+<div style="position:absolute;left:492.69px;top:566.84px" class="cls_008"><span class="cls_008">POITIERS</span></div>
+<div style="position:absolute;left:44.42px;top:578.93px" class="cls_008"><span class="cls_008">MME DUPOND MICHELE</span></div>
+<div style="position:absolute;left:217.43px;top:578.93px" class="cls_008"><span class="cls_008">RES. LES MAGNOLIAS</span></div>
+<div style="position:absolute;left:299.71px;top:578.93px" class="cls_008"><span class="cls_008">20 RUE NATIONAL</span></div>
+<div style="position:absolute;left:414.65px;top:578.93px" class="cls_008"><span class="cls_008">36000</span></div>
+<div style="position:absolute;left:492.69px;top:578.93px" class="cls_008"><span class="cls_008">CHATEAUROUX</span></div>
+<div style="position:absolute;left:44.42px;top:590.99px" class="cls_008"><span class="cls_008">CABINET MARTIN</span></div>
+<div style="position:absolute;left:137.59px;top:590.99px" class="cls_008"><span class="cls_008">MLE MARTIN LAURE</span></div>
+<div style="position:absolute;left:299.71px;top:590.99px" class="cls_008"><span class="cls_008">30 RUE VOLTAIRE</span></div>
+<div style="position:absolute;left:414.65px;top:590.99px" class="cls_008"><span class="cls_008">41000</span></div>
+<div style="position:absolute;left:438.83px;top:590.99px" class="cls_008"><span class="cls_008">BP 100</span></div>
+<div style="position:absolute;left:492.69px;top:590.99px" class="cls_008"><span class="cls_008">BLOIS CEDEX</span></div>
+<div style="position:absolute;left:24.60px;top:614.87px" class="cls_006"><span class="cls_006">L’intégration par la société L   NOUVELLE REPUBLIQUE DU CENTRE OUEST du fichier transmis par le client aux normes décrites ci-dessus est possible moyennant le tarif</span></div>
+<div style="position:absolute;left:24.60px;top:624.59px" class="cls_006"><span class="cls_006">indiqué dans le devis transmis par LA NOUVELLE REPUBLIQUE DU CENTRE OUEST et accepté par le client.</span></div>
+<div style="position:absolute;left:24.60px;top:634.31px" class="cls_006"><span class="cls_006">Les fichiers d’adresses fournis par le client sont indispensables au traitement de la prestation. Ils pourront être utilisés par  LA NOUVELLE REPUBLIQUE DU CENTRE OUEST</span></div>
+<div style="position:absolute;left:24.60px;top:644.15px" class="cls_006"><span class="cls_006">à des fins commerciales.</span></div>
+<div style="position:absolute;left:24.60px;top:653.90px" class="cls_006"><span class="cls_006">Le Client reconnait en approuvant ces conditions générales de vente donner son accord exprès ă cette modalité d’utilisation.</span></div>
+<div style="position:absolute;left:24.60px;top:673.46px" class="cls_006"><span class="cls_006">L’envoi individuel pris en charge par la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST  et expédié par la Poste doit se faire conformément à la norme AFNOR</span></div>
+<div style="position:absolute;left:24.60px;top:683.18px" class="cls_006"><span class="cls_006">XPZ10-011 et aux normes classiques d’adressage des journaux « MEDIAPOST ». En cas de non-respect de ces normes par le client, la société LA NOUVELLE REPUBLIQUE</span></div>
+<div style="position:absolute;left:24.60px;top:693.02px" class="cls_006"><span class="cls_006">DU CENTRE OUEST ne pourra être tenue pour responsable de la non-distribution des adresses litigieuses.</span></div>
+<div style="position:absolute;left:24.60px;top:702.74px" class="cls_006"><span class="cls_006">Chaque fichier d’adresses fournit par le client est contrôlé par la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST  par traitement dans l’outil R.N.V.P. de la Poste.</span></div>
+<div style="position:absolute;left:24.60px;top:712.46px" class="cls_006"><span class="cls_006">Cet outil identifie les adresses litigieuses pour lesquelles la Poste ne s’engage pas ă assurer une bonne prestation de distribution des journaux. La société LA NOUVELLE</span></div>
+<div style="position:absolute;left:24.60px;top:722.30px" class="cls_006"><span class="cls_006">REPUBLIQUE DU CENTRE OUEST  s’engage ă informer le client, qui le demande, du nombre d’adresses considérées comme litigieuses par l’outil R.N.V.P. de la Poste. La</span></div>
+<div style="position:absolute;left:24.60px;top:732.02px" class="cls_006"><span class="cls_006">société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST  ne pourra en aucun cas être tenue pour responsable de la non-distribution des adresses identifiées comme</span></div>
+<div style="position:absolute;left:24.60px;top:741.86px" class="cls_006"><span class="cls_006">litigieuses par l’outil R.N.V.P. Les exemplaires des journaux qui correspondent à des adresses fournies par le client et identifiées comme litigieuses restent dus par le</span></div>
+<div style="position:absolute;left:24.60px;top:751.58px" class="cls_006"><span class="cls_006">client. Les horaires et délais de livraisons seront ceux habituellement pratiqués par les services postaux, la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST</span></div>
+<div style="position:absolute;left:24.60px;top:761.30px" class="cls_006"><span class="cls_006">déclinant toute responsabilité en cas de défaut et/ou de retard d'acheminement des journaux causé par un dysfonctionnement total ou partiel du service postal.</span></div>
+<div style="position:absolute;left:547.30px;top:779.66px" class="cls_002"><span class="cls_002">1</span></div>
+</div>
+
+<p style="page-break-before: always;">
+
+<div class="p2"  style="position:absolute;left:50%;margin-left:-297px;top:2051px;width:595px;height:841px;">
+
+<div style="position:absolute;left:24.60px;top:25.60px" class="cls_006"><span class="cls_006">L’ensemble de ces éléments  doit être fourni, sous forme informatique, au plus tard cinq (5) jours ouvrés avant la date d’envoi individuel souhaitée. Le respect des délais</span></div>
+<div style="position:absolute;left:24.60px;top:35.32px" class="cls_006"><span class="cls_006">est impératif pour la mise en fabrication des éléments de la commande du client ; tout retard ou défaut de réception annulerait tout ou partie des prestations</span></div>
+<div style="position:absolute;left:24.60px;top:45.04px" class="cls_006"><span class="cls_006">demandées.</span></div>
+<div style="position:absolute;left:24.60px;top:54.88px" class="cls_006"><span class="cls_006">Le contact de la société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST est mentionné sur le bon de commande.</span></div>
+<div style="position:absolute;left:24.60px;top:73.96px" class="cls_005"><span class="cls_005">3. MODE DE PAIEMENT</span></div>
+<div style="position:absolute;left:24.60px;top:83.58px" class="cls_006"><span class="cls_006">Le paiement doit intervenir sous 30 jours fin de mois à réception de la facture, sauf conditions spécifiques expressément mentionnées sur le bon de commande</span></div>
+<div style="position:absolute;left:24.60px;top:93.42px" class="cls_006"><span class="cls_006">La société L   NOUVELLE REPUBLIQUE DU CENTRE OUEST se réserve le droit d’interrompre la livraison sans préavis en cas de non-paiement.</span></div>
+<div style="position:absolute;left:24.60px;top:102.78px" class="cls_005"><span class="cls_005">4. PRIX</span></div>
+<div style="position:absolute;left:24.60px;top:112.38px" class="cls_006"><span class="cls_006">Le prix des envois en nombre est exprimé en euros.</span></div>
+<div style="position:absolute;left:24.60px;top:122.10px" class="cls_006"><span class="cls_006">Le prix indiqué dans la confirmation de commande est le prix définitif, exprimé toutes taxes comprises et incluant la TVA.</span></div>
+<div style="position:absolute;left:24.60px;top:131.82px" class="cls_006"><span class="cls_006">Les éventuelles modifications tarifaires n’affectent pas les commandes en cours.</span></div>
+<div style="position:absolute;left:24.60px;top:141.30px" class="cls_005"><span class="cls_005">5. MODIFICATIONS DES JOURNAUX</span></div>
+<div style="position:absolute;left:24.60px;top:150.78px" class="cls_006"><span class="cls_006">La société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST  se réserve la possibilité de faire évoluer ses publications pour des raisons techniques, conformément ă l’article</span></div>
+<div style="position:absolute;left:24.60px;top:160.62px" class="cls_006"><span class="cls_006">R. 132-2-1 V du Code de la consommation.</span></div>
+<div style="position:absolute;left:24.60px;top:169.98px" class="cls_005"><span class="cls_005">6. RESPONSABILITE</span></div>
+<div style="position:absolute;left:24.60px;top:179.58px" class="cls_006"><span class="cls_006">La société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST ne saurait être tenue responsable de toute inexécution ou de mauvaise exécution qui aurait pour origine un fait</span></div>
+<div style="position:absolute;left:24.60px;top:189.30px" class="cls_006"><span class="cls_006">imputable au client et / ou un cas de force majeure, incluant notamment mais non limitativement les cas de guerre, d'émeute, d'insurrection, de grève interne ou</span></div>
+<div style="position:absolute;left:24.60px;top:199.14px" class="cls_006"><span class="cls_006">externe ă l’entreprise, de lock-out, de pénurie, d'incendie, d’intempéries, de tremblement de terre, de tempête, d'inondation͙</span></div>
+<div style="position:absolute;left:24.60px;top:208.50px" class="cls_005"><span class="cls_005">7. INFORMATIONS NOMINATIVES</span></div>
+<div style="position:absolute;left:24.60px;top:218.10px" class="cls_006"><span class="cls_006">En application de la loi du 6 janvier 1978 « Informatique et Libertés », le client dispose d’un droit d’accès, de rectification  et de suppression aux données le concernant</span></div>
+<div style="position:absolute;left:24.60px;top:227.82px" class="cls_006"><span class="cls_006">en écrivant à La Nouvelle République du Centre Ouest, Direction Marketing-Ventes, 232 avenue de Grammont, 37048  Tours cedex 01.</span></div>
+<div style="position:absolute;left:24.60px;top:237.54px" class="cls_006"><span class="cls_006">Les informations recueillies sont indispensables au traitement du contrat. Elles peuvent être communiquées à des tiers, liés contractuellement à LA NOUVELLE</span></div>
+<div style="position:absolute;left:24.60px;top:247.38px" class="cls_006"><span class="cls_006">REPUBLIQUE DU CENTRE OUEST.</span></div>
+<div style="position:absolute;left:24.60px;top:256.74px" class="cls_005"><span class="cls_005">8. LITIGES, DROIT APPLICABLE ET JURIDICTION COMPETENTE</span></div>
+<div style="position:absolute;left:24.60px;top:266.34px" class="cls_006"><span class="cls_006">Les présentes conditions générales sont soumises à la loi française. Tout litige relatif à la conclusion, l'interprétation, l'exécution des présentes conditions générales sera</span></div>
+<div style="position:absolute;left:24.60px;top:276.09px" class="cls_006"><span class="cls_006">soumise à </span><span class="cls_009">la compétence des tribunaux de Tours.</span></div>
+<div style="position:absolute;left:24.60px;top:285.57px" class="cls_005"><span class="cls_005">9. DIVISIBILITE DES CONDITIONS GENERALES</span></div>
+<div style="position:absolute;left:24.60px;top:295.05px" class="cls_006"><span class="cls_006">Si pour une quelconque raison l'une des présentes conditions générales devait être déclarée inapplicable, cette inapplicabilité n'affecterait pas l'application des autres</span></div>
+<div style="position:absolute;left:24.60px;top:304.89px" class="cls_006"><span class="cls_006">dispositions des conditions générales, celle jugée inapplicable étant alors remplacée par la disposition la plus proche possible.</span></div>
+<div style="position:absolute;left:24.60px;top:314.25px" class="cls_005"><span class="cls_005">10. MODIFICATION DES CONDITIONS GENERALES DE VENTE</span></div>
+<div style="position:absolute;left:24.60px;top:323.85px" class="cls_006"><span class="cls_006">La société LA NOUVELLE REPUBLIQUE DU CENTRE OUEST se réserve la possibilité d'adapter ou de modifier à tout moment les présentes conditions générales de vente.</span></div>
+<div style="position:absolute;left:24.60px;top:333.57px" class="cls_006"><span class="cls_006">Ces conditions générales de ventes sont systématiquement communiquées au client lors de la proposition commerciale.</span></div>
+<div style="position:absolute;left:24.60px;top:353.13px" class="cls_006"><span class="cls_006">SA La Nouvelle République du Centre-Ouest - Capital 5.316.181€ - RCS TOURS 584 800 122</span></div>
+<div style="position:absolute;left:24.60px;top:362.85px" class="cls_006"><span class="cls_006">232 avenue de Grammont</span></div>
+<div style="position:absolute;left:24.60px;top:372.69px" class="cls_006"><span class="cls_006">37048 Tours Cedex 1</span></div>
+<div style="position:absolute;left:24.60px;top:382.41px" class="cls_006"><span class="cls_006">Numéro de téléphone : 02.47.31.70.00</span></div>
+<div style="position:absolute;left:24.60px;top:425.13px" class="cls_006"><span class="cls_006">Dernière révision 27/09/2013</span></div>
+<div style="position:absolute;left:547.30px;top:779.66px" class="cls_002"><span class="cls_002">2</span></div>
+</div>
+   	
+   </div>
+</template>
+<div id="bdc-div"></div>
+<div id="editor"></div>

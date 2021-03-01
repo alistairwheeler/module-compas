@@ -1,0 +1,9 @@
+{
+    "date": "2021-03-01 10:28:21",
+    "name": "COMPAS_NRCO",
+    "format": "xml",
+    "files": ["COMPAS_NRCO.xml"],
+    "repository": {},
+    "version": "1.19.1",
+    "platform": "4.0.P25"
+}

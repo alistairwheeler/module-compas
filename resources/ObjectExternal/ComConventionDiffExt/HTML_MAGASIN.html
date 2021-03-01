@@ -1,0 +1,409 @@
+<template id="convention-template">
+		<button id=print-btn>Imprimer</button>
+	<div class="com-title ub">
+  CONVENTION POUR LA DIFFUSION DE LA PRESSE QUOTIDIENNE REGIONALE {{#IsCp}}ET DEPARTEMENTALE{{/IsCp}}
+</div>
+<div class="com-subtitle">
+  Diffuseur vendant uniquement en magasin <br> Avec facturation {{frequenceFact}}
+</div>
+<br>
+<br>
+<div>
+  <p class="subi">Entre les soussignées</p>
+
+{{#IsCp}}
+<p>
+	<b>SOCIETE DE PRESSE ET D’INFORMATION</b>, Société Anonyme au capital social de 9.990.765 euros dont le siège social est sis 1 ter, rue du Moulin à Vent, à Poitiers (Vienne) et immatriculée au Registre du Commerce et des Sociétés de Poitiers sous le numéro 401 418 868,
+</p>
+{{/IsCp}}
+{{^IsCp}}
+  <p><b>LA NOUVELLE REPUBLIQUE DU CENTRE-OUEST</b>, Société Anonyme à Directoire et Conseil de Surveillance au capital social de 5.316.181 euros dont le siège social est situé à TOURS (37000) - 232 avenue de Grammont, enregistrée au RCS de Tours sous le
+    n° 584 800 122,</p>
+{{/IsCp}}
+  <p>Représentée par <b>M. Olivier BOISNARD</b>, en sa qualité de Directeur Marketing Ventes, dûment habilité à l’effet des présentes.</p>
+  <p>Ci-après dénommée "l’Editeur" ou par abréviation « {{#IsCp}}SDPI{{/IsCp}}{{^IsCp}}NRCO{{/IsCp}} »</p>
+  <div class="ucb">
+    D'une part,
+  </div>
+</div>
+<div>
+  <p class="subi">Et</p>
+  {{#item}}
+  <div>
+    M {{comACContactId__comContactNom}} {{comACContactId__comContactPrenom}} <br> demeurant {{comACAdresseId__comAdrLigne1}}, {{comACAdresseId__comAdrCP}}  {{comACAdresseId__comAdrVille}}<br> {{ rcsMension }}
+  </div>
+  {{/item}}
+  <br>
+  <div>
+    Ci-après dénommé(e) "le Diffuseur"
+  </div>
+  <div class="ucb">
+    D'autre part,
+  </div>
+</div>
+<br>
+<div>
+  Et ci-après désignées conjointement par « <b>les Parties</b> » et individuellement par « <b>la Partie</b> ».
+</div>
+<br>
+<div class="ub">
+  Après avoir rappelé que :
+</div>
+<br>
+<div>
+La Convention ci-dessous applique strictement les principes traditionnels de diffusion de la Presse résultant des usages et rappelés notamment par l'ARCEP et la Loi n°47-585 du 2 avril 1947, modifiée par la Loi n° 2019-1063 du 10 octobre 2019 dont l’article 1er dispose : « La diffusion de la presse est libre ». La convention qui lie {{#IsCp}}SDPI{{/IsCp}}{{^IsCp}}la Nouvelle République du Centre-Ouest{{/IsCp}} et le Diffuseur découle de ce principe fondamental et fixe seulement ses modalités d’application. Le journal reste la propriété de l’Editeur jusqu’à son achat final par le client.
+</div>
+<br>
+<div class="ub">
+  Il est convenu et arrêté ce qui suit, à compter du {{date}}
+</div>
+<br>
+<div>
+  <div>
+    <p class=sb>
+      Article 1er - Objet :
+    </p>
+    <p>
+      Autorisé par la Société {{#IsCp}}SDPI{{/IsCp}}{{^IsCp}}NRCO{{/IsCp}}, éditrice du journal quotidien {{#IsCp}}Centre Presse{{/IsCp}}{{^IsCp}}du même nom{{/IsCp}}, à vendre au public directement des exemplaires des journaux quotidiens et hebdomadaires ainsi que tous autres produits presse, tels que suppléments, magazines, livres, opuscules
+      …, édités ou commercialisés par le Groupe La Nouvelle République, l’Editeur s'engage à fournir au Diffuseur, qui le lui a demandé, en vue de leur présentation et de leur vente au public au numéro, des exemplaires de ces publications, moyennant reprise
+      de tous les exemplaires invendus en bon état.
+    </p>
+  </div>
+  <br>
+  <div>
+    <p class="sb">
+      Article 2 - Caractère de la Convention :
+    </p>
+    <p>
+      En raison de la nature particulière de la Presse Quotidienne Régionale{{#IsCp}} et Départementale{{/IsCp}} et de son circuit de distribution, et conformément aux usages, la présente convention est consentie à titre gratuit, strictement personnelle, précaire et révocable à tout moment unilatéralement,
+      sous la seule réserve du respect des délais de prévenance fixés à l’article 5 ci-après.
+    </p>
+    <p>
+      Le Diffuseur reconnaît expressément que son attention a été attirée sur ces caractères spécifiques et qu'ils sont les conditions déterminantes de la convention dont le non-respect justifierait la résiliation immédiate de la présence convention à l’initiative
+      de l’Editeur.
+    </p>
+    <p>
+      En conséquence de ce qui précède, elle s'éteindra de plein droit par le décès ou la cessation d'activité du Diffuseur.
+    </p>
+    <p>
+      Elle ne pourra être transmise à quelque personne physique ou morale que ce soit, à quelque titre que ce soit, et de quelque manière que ce soit fut-elle son successeur dans son commerce. Si le Diffuseur est constitué en société, il s’engage à faire connaître
+      à l’Editeur tout projet de cession d’actions représentatives de son capital, au moins un (1) mois à l’avance. La présente convention ne peut être apportée à une société ou une association quelle qu’en soit la forme juridique, ou être mise à la
+      disposition d’un gérant libre ou salarié de son fonds de commerce sans l’accord préalable et écrit de l’Editeur.
+    </p>
+    <p>
+      Le présent document est suivi d'une annexe destinée à préciser certaines conditions particulières régissant les relations des parties. Les stipulations de cette annexe font partie intégrante de la convention.
+    </p>
+  </div>
+  <br>
+  <div>
+    <p class="sb">
+      Article 3 - Conditions de la diffusion :
+    </p>
+    <p>
+      Le Diffuseur s'engage à assurer la mise en vente des journaux selon les modalités ci-après, conformes aux usages de la profession.
+    </p>
+    <ul class="com-upperli">
+      <li class="li-head">Lieu de vente :
+      </li>
+      <p>
+        Le Diffuseur exerce son activité à l'adresse suivante où il dispose d'un magasin de vente au public : {{#item}}{{comACAdresseId__comAdrLigne1}}, {{comACAdresseId__comAdrCP}}  {{comACAdresseId__comAdrVille}}{{/item}}
+      </p>
+      <p>
+        Tout changement d'adresse sans agrément préalable et écrit de l'Editeur entraîne de plein droit la résiliation immédiate de la convention.
+      </p>
+      <li class="li-head">Conditions d'exervice de l'activité</li>
+
+      <p class="s">
+        Le Diffuseur s'engage:
+      </p>
+
+<ul class="com-lowerli">
+    
+
+<li>A mettre en vente les exemplaires reçus dès l'ouverture du magasin chaque jour de parution, à l'exception des jours de fermeture.</li>
+
+<li>A assurer sur son lieu de vente une bonne exposition du ou des titres diffusés et à réserver l'usage du matériel proposé par l'Editeur au(x) seul(s) titre(s) de celui-ci.</li>
+
+<li>A signaler immédiatement à l'Editeur les modifications à apporter aux livraisons pour ne pas manquer la vente, ni accroître exagérément les invendus.</li>
+
+<li>A solliciter les réassorts nécessaires au maintien de la vente du ou des titres pendant les heures d'ouverture au cours de la journée, afin de permettre à l'Editeur d'optimiser les moyens de nature à satisfaire ses lecteurs.</li>
+
+<li>A renseigner l'Editeur sur ses résultats de vente journaliers en utilisant les moyens de communication mis en place selon une fréquence déterminée par les besoins.</li>
+
+<li>A faciliter l'activité exercée par les représentants de l'Editeur.</li>
+
+<li>A apporter son concours aux actions de promotion de vente effectuées en vue d'augmenter la diffusion du ou des titres de l'Editeur.</li>
+
+</ul>
+      <br>
+      <p class="s">
+        L'Editeur s'engage :
+      </p>
+      <ul class="com-lowerli">
+        <li>A livrer ou faire livrer le Diffuseur à son point de vente dès que possible après la parution du ou des titres.
+        </li>
+        <li>A livrer dans les meilleurs délais les réassorts.
+        </li>
+        <li>A fournir au Diffuseur, à sa demande, des éléments chiffrés sur les résultats de son point de vente.
+        </li>
+      </ul>
+    </ul>
+  </div>
+  <div>
+    <p class="sb">
+      Article 4 - Commission :
+    </p>
+    <p>
+      La commission du Diffuseur est fixée à {{#item}}{{comPVfactCommMag}}{{/item}}% du prix public sur tout exemplaire vendu.
+    </p>
+    <p>
+      Il est précisé que, par application de la loi, la TVA sur le prix de vente total des journaux au public est acquittée par l'Editeur seul. Le Diffuseur pourra justifier, sur présentation du certificat d'inscription de diffuseur de presse auprès de l'Administration fiscale que les opérations qu'il accomplit dans ce cadre ne l'assujettissent pas à ladite taxe.
+    </p>
+  </div>
+  <div>
+    <p class="sb">
+      Article 5 - Fin de la convention
+    </p>
+    <p>
+      En raison des caractères gratuit, personnel, précaire et révocable unilatéralement de la convention, l’Editeur peut y mettre fin à tout moment sous réserve du respect d'un préavis de d’un (1) mois, par lettre recommandée avec AR.
+    </p>
+    <p>
+      Pour sa part, le Diffuseur qui voudrait y mettre fin pourra le faire, sous réserve d’un préavis de même durée.
+    </p>
+    <p>
+      Aucune indemnité ne sera due de part et d'autre de quelque nature que ce soit et pour quelque cause que ce soit à la fin de la présente convention.
+    </p>
+  </div>
+  <div>
+    <p class="sb">
+      Article 6 - Règlement des litiges
+    </p>
+    <p>
+      Les différends venant à s'élever dans l'interprétation ou l'application des présentes et qui n'auraient pu être réglés à l'amiable, seront de la compétence des tribunaux du siège de l'Editeur.
+    </p>
+  </div>
+  <br>
+  <br>
+  <div class="container break">
+    <div class="row">
+      <div class="col-6">
+
+      </div>
+      <div class="col-6">
+        Fait à <br> le <br> en deux (2) exemplaires originaux<br>
+        <br> (faire précéder les signatures de la mention "Lu et Approuvé")
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-6">
+        L'Editeur
+      </div>
+      <div class="col-6">
+        Le Diffuseur
+      </div>
+    </div>
+  </div>
+  <br><br><br><br>
+</div>
+
+
+<div class="com-title">
+  ANNEXE A LA CONVENTION POUR LA DIFFUSION
+</div>
+<div class="com-title b">
+  DE LA PRESSE QUOTIDIENNE REGIONALE {{#IsCp}}ET DEPARTEMENTALE{{/IsCp}}
+</div>
+<div class="com-subtitle b">
+  (Vente exclusivement en magasin)
+</div>
+
+<br>
+<br>
+
+<p>
+  Les parties ayant établi entre elles, ce jour, une convention pour la diffusion de la Presse Quotidienne Régionale{{#IsCp}} et Départementale{{/IsCp}}, entendent préciser ci-dessous diverses modalités de son exécution.
+</p>
+<p>
+  Elles soulignent à cette occasion avoir l'une et l'autre pour préoccupation le développement de la vente dans le secteur desservi par le magasin du Diffuseur, elles agiront chacune dans leur domaine pour tirer parti localement des efforts de promotion
+  développés par l'Editeur auprès de l'ensemble du public et de ses lecteurs potentiels.
+</p>
+
+<ul class="com-romanli">
+  <li class="sub">Mise en vente</li>
+  <p>
+    Il est rappelé que le ou les journaux à diffuser paraissent à raison de sept jours par semaine.
+  </p>
+  <p>
+    L'Editeur prend toutes dispositions afin d'approvisionner le Diffuseur dans les meilleurs délais.
+  </p>
+  <p>
+    De son côté, afin de respecter l'obligation par lui souscrite de mettre en vente les exemplaires confiés (ou de faire assurer leur vente au lieu fixé par la convention, par tout salarié, sous sa responsabilité) dès l'ouverture du magasin, chaque jour
+    de parution, le Diffuseur s'engage à adopter les dispositions ci-après :
+  </p>
+  <ul class="com-lowerli">
+    <li class="b">Semaine</li>
+    <p>
+      Le Diffuseur définit les heures d'ouverture du magasin en tenant compte des caractéristiques du quartier. Les horaires retenus sont clairement affichés. Ils sont de {{#item}}{{comPVheureOuvertureDef}} à {{comPVheureFermetureDef}} {{/item}}(matin et après-midi), sauf
+      modifications dans les habitudes de déplacements locaux. Jours de fermeture à indiquer
+    </p>
+    <li class="b">Dimanches et jours fériés</li>
+    <p>
+      Dans l'hypothèse d'une fermeture les dimanches et jours fériés, et si le Diffuseur est saisi d’une demande d’ouverture de la part de l’Editeur, le Diffuseur propose une solution destinée à préserver la continuité de la vente dont les modalités sont définies
+      d'un commun accord.
+    </p>
+    <li class="b">Vacances annuelles</li>
+    <p>
+      Si le Diffuseur estime devoir fermer son magasin pour ses congés annuels, il devra préalablement faire connaître à l'Editeur les dates envisagées pour une telle fermeture, et ce trois (3) mois à l'avance afin de permettre l'organisation de la vente.
+    </p>
+    <p>
+      Le Diffuseur s'engage à participer alors à une concertation avec les autres Diffuseurs concernés dont les magasins sont proches du sien, afin d'éviter d'éventuelles fermetures simultanées qui perturberaient excessivement les habitudes d'achat de la clientèle
+      d'une même zone territoriale.
+    </p>
+    <p>
+      En outre, si l'Editeur en formule la demande, le Diffuseur devra organiser et faire assurer, sous sa responsabilité, mais selon des modalités fixées d’un commun accord, la continuité de la vente et l’approvisionnement de la clientèle à proximité immédiate
+      de son magasin.
+    </p>
+    <li class="b">Interruption exceptionnelle d'activité</li>
+    <p>
+      Dans le cas où le Diffuseur serait exceptionnellement dans l'obligation d'interrompre son activité, il devrait informer immédiatement l'Editeur en lui précisant la cause et la durée prévisible.
+    </p>
+    <p>
+      Si le Diffuseur peut se faire remplacer dans son magasin, il présentera son remplaçant à l'Editeur et le compte restera ouvert au nom du titulaire qui demeurera personnellement responsable du respect de toutes les clauses et conditions de la présente
+      convention.
+    </p>
+    <p>
+      Dans le cas contraire, et pendant la période de carence du Diffuseur, l'Editeur pourra prendre toutes les initiatives qui lui paraîtront utiles pour assurer la permanence de la vente de ses publications.
+    </p>
+    <li class="b">Quels que soient les motifs de fermeture</li>
+    <p>
+      Le Diffuseur devra afficher de façon très apparente les adresses des points de vente restant ouverts dans un périmètre rapproché, sur des documents prévus à cet effet.
+    </p>
+  </ul>
+  <li class="sub">LIEU DE VENTE ET PRESENTATION DU OU DES TITRES</li>
+  <p>
+    Le Diffuseur veillera à mettre en place une signalétique tant extérieure (enseigne, vitrine) qu’intérieure (présentoirs) de nature à favoriser la vente.
+    <br> L'Editeur s'engage à lui apporter ses conseils afin d'améliorer les techniques de présentation et de vente du journal en fonction de l'évolution des besoins.
+    <br> Les exemplaires destinés à la vente doivent être présentés pour leur mise en vente dès l'ouverture du magasin, et correctement exposés sur supports appropriés, tant à l’intérieur qu’à l’extérieur du magasin, dans les limites fixées par les règlements
+    municipaux de voirie et de copropriété.
+    <br> En fonction de l'agencement du magasin, le Diffuseur pourra réserver aux titres édités par l'Editeur plusieurs points d'exposition.
+  </p>
+  <li class="sub">REGLAGE DES SERVICES, INVENDUS et STATISTIQUES</li>
+  <ul class="com-lowerli">
+    <li>
+      Les services quotidiens sont adaptés de manière à ce que le Diffuseur dispose de quantités suffisantes pour suivre les fluctuations de la vente, avec un pourcentage d'invendus conforme aux objectifs de l'Editeur. Les demandes de réassort devront être
+      adressées à l'Editeur par les moyens les plus rapides, afin qu'il soit en mesure d'y donner suite compte tenu des délais d'acheminement.
+    </li>
+    <li>
+      Pour être crédités, les journaux invendus sont rendus régulièrement chaque jour à l'Editeur dans l'état de livraison. Les paquets sont :
+      <ul>
+        <li>convenablement ficelés,</li>
+        <li>correctement identifiés à l'aide du matériel fourni par l'Editeur : nom, code, tournée, nombre d'exemplaires par prix et par édition, nombre de colis.
+        </li>
+      </ul>
+      <p>
+        Les invendus incomplets ou surchargés seront refusés.
+      </p>
+      <p>Il est expressément convenu que le Diffuseur effectue la déclaration des invendus des titres du Groupe La Nouvelle République par saisie des quantités sur un site Internet dédié, dont l’adresse est : www.diffuseurs-groupenr.com.
+      </p>
+      <p>
+        Ce site Internet, mis à disposition par l’Editeur, sera le seul moyen admis pour la déclaration des invendus, sauf en cas d’impossibilité matérielle du Diffuseur, dûment connue de l’Editeur.
+      </p>
+      <p class="s">
+        Identifiant et Codes d'accès :
+      </p>
+      <p class="com-border">
+        <br><br><br>
+      </p>
+      <ul>
+        <li>Obligations du Diffuseur :
+        </li>
+        <p>
+          Le Diffuseur doit déclarer ses invendus tous les jours de parution, avec tolérance ne pouvant excéder vingt-quatre (24) heures. Il convient de saisir obligatoirement les quantités nulles.
+        </p>
+        <p>
+          Le Diffuseur atteste <b>sur l’honneur</b> l’exactitude des quantités saisies. Toute personne mandatée par l’Editeur pourra effectuer des contrôles de cohérence entre la déclaration du Diffuseur et les exemplaires réellement retournés. En cas
+          d’écart, c’est la quantité réellement retournée qui prévaut.
+        </p>
+        <li>Obligations de l'Editeur :</li>
+        <p>
+          L’Editeur s’engage à mettre à la disposition du Diffuseur le site Internet permettant la déclaration des invendus.
+        </p>
+        <p>
+          L’Editeur s’engage également à dispenser la formation et l’assistance nécessaires au Diffuseur pour une utilisation appropriée du site Internet.
+        </p>
+      </ul>
+      <li>
+        Suivi de ventes : le Diffuseur tient à jour un état justificatif si l'Editeur le lui demande.
+      </li>
+  </ul>
+  <br />
+  <li class="sub">PRIX DE VENTE ET MODALITES DE REGLEMENT</li>
+  <p>
+    Le prix de vente est fixé par l'Editeur ; il est porté sur chaque exemplaire et ne peut être modifié.
+  </p>
+  <p>
+    Le Diffuseur est redevable journellement du montant des ventes. Par voie de conséquence, il devrait effectuer chaque jour le règlement des journaux qui lui ont été livrés le jour même, déduction faite des invendus et de sa commission.
+  </p>
+  <p>
+    Cependant, afin de simplifier les opérations, tant pour le Diffuseur que pour l'Editeur, les modalités ci-après seront adoptées :
+  </p>
+  <ul style="display:{{displayHebdo}}">
+    <li>selon une périodicité hebdomadaire, l'Editeur fera parvenir au Diffuseur la facturation des exemplaires livrés, déduction faite des invendus retournés en bon état et déduction faite de la commission Diffuseur</li>
+    <li>La facturation sera établie du dimanche au samedi (semaines S). Le retour et la saisie des invendus se fera à J+1 avec marge J+2 pour ceux du samedi, dernière saisie le mardi (S+1)</li>
+    <li>La facture sera établie et envoyée le jeudi soir (S+1)</li>
+    <li>Le règlement par prélèvement sera effectué le jeudi (S+2) date de valeur.</li>
+  </ul>
+  <ul style="display:{{displayMensuel}}">
+  	<li>Selon une périodicité mensuelle, l'Editeur fera parvenir au Diffuseur la facturation des exemplaires livrés, déduction faite des invendus retournés en bon état et déduction faite de la commission Diffuseur.</li>
+    <li>La facturation sera établie mensuellement au plus tard le 10 du mois suivant (M+1). Le retour et la saisie des invendus se fera à J+1 avec marge J+2 pour ceux du samedi, dernière saisie le mardi (S+1)</li>
+    <li>Le règlement par prélèvement sera effectué le 15 du mois (M+1). Les paiements par chèque devront parvenir à l’Editeur dans le même délai.</li>
+  </ul>
+
+  <p>
+    En cas de retard ou d’incident de paiement, l’Editeur se réserve le droit de facturer des intérêts de retard exigibles le jour suivant la date de règlement figurant sur la facture au taux de 14 %.
+  </p>
+  <p>
+    En tout état de cause, ce taux ne pourra être inférieur au taux d’intérêt appliqué par la Banque Centrale Européenne à son opération de refinancement la plus récente majoré de dix points de pourcentage.
+  </p>
+  <p>
+    Ces intérêts seront exigibles par le seul fait de l’échéance du terme et sans qu’il soit nécessaire d’accomplir une quelconque formalité et s’appliqueront sur le montant total du découvert excédant le délai de paiement convenu.
+  </p>
+  <p>
+    En cas de cessation d'activité ou de fin de la convention pour quelque cause que ce soit, les sommes dues seront immédiatement exigibles.
+  </p>
+  <li class="sub">ASSURANCES</li>
+  <p>
+    Le Diffuseur est responsable des journaux dès le dépôt de ceux-ci au lieu convenu. Il doit s'assurer de façon suffisante aussi bien contre le vol, l'incendie, le dégât des eaux et les explosions, pour toutes les fournitures adressées par l'Editeur et
+    existantes dans son commerce, qu'elles soient en cours de vente ou déjà regroupées comme invendus, et que le sinistre soit le fait d'un préposé ou résulte d'un cas fortuit ou de force majeure.
+  </p>
+  <p>
+    Aucun recours contre l'Editeur ne pourrait être pris en considération par celui-ci en pareil cas.
+  </p>
+</ul>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+
+    </div>
+    <div class="col-6">
+      Fait à <br> le <br> en deux (2) exemplaires originaux<br>
+      <br> (faire précéder les signatures de la mention "Lu et Approuvé")
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-6">
+      L'Editeur
+    </div>
+    <div class="col-6">
+      Le Diffuseur
+    </div>
+  </div>
+</div>
+<br><br><br><br>
+
+</template>
+<div id="convention-div"></div>

@@ -1,0 +1,52 @@
+@com-border: 0.5px solid black !important;
+
+form[name="f_list_ComUserObjectifs_home_ajax_ComUserObjectifs_8"]{
+
+	table{
+		border:@com-border;
+	}
+	
+	tr.col-area{
+		
+		th{
+			&[data-area="1"], &[data-area="2"], &[data-area="7"], &[data-area="8"], &[data-area="9"]{
+				border-left:@com-border;
+				border-right:@com-border;
+				border-bottom:@com-border;
+			}
+				
+			&[data-area="6"]{
+				border-left:@com-border;
+				border-right:@com-border;
+				border-bottom:@com-border;
+			}
+		}
+		
+	}
+	
+	tr.head{
+		th{
+			border:@com-border;
+		}
+		
+		th.col-action{
+			border-top:none;
+			border-bottom:none;
+		}
+	}
+	
+	
+	tr.totals{
+		td{
+			border-top:@com-border;
+		}
+	}
+	
+	tbody[data-list="list_ComUserObjectifs_home_ajax_ComUserObjectifs_8"]{
+		td{
+			border-right:@com-border;
+		}
+	}
+	
+	
+}
